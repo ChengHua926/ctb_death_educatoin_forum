@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:forum/Screen/questionScreen.dart';
 
 class signupScreen extends StatefulWidget {
   const signupScreen({Key? key}) : super(key: key);
@@ -21,65 +22,74 @@ class _signupScreenState extends State<signupScreen> {
                 height: 300,
                 alignment: Alignment.center,
                 //color: Colors.amber,
-                child: Column(
-                    children: [
-                      Expanded(
-                        flex: 1,
-                        child: Column(
-                          children: [
-                            Expanded(
-                              flex: 1,
-                              child: Text('用户名'),
-                            ),
-                            Expanded(
-                              flex: 2,
-                              child: TextFormField(
-                                decoration: InputDecoration(labelText: '输入用户名'),
-                              ),
-                            ),
-                          ],
+                child: Column(children: [
+                  Expanded(
+                    flex: 1,
+                    child: Column(
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: Text('用户名'),
                         ),
-                      ), //账号
-
-                      Expanded(
-                        flex: 2,
-                        child: Column(
-                          children: [
-                            Expanded(
-                              flex: 1,
-                              child: Text('设定密码'),
-                            ),
-                            Expanded(
-                              flex: 2,
-                              child: TextFormField(
-                                decoration: InputDecoration(labelText: '输入密码'),
-                                obscureText: true,
-                              ),
-                            ),
-                            Expanded(
-                              flex: 1,
-                              child: Text('核对密码'),
-                            ),
-                            Expanded(
-                              flex: 2,
-                              child: TextFormField(
-                                decoration: InputDecoration(labelText: '请再次输入密码'),
-                                obscureText: true,
-                              ),
-                            ),
-                          ],
+                        Expanded(
+                          flex: 2,
+                          child: TextFormField(
+                            decoration: InputDecoration(labelText: '输入用户名'),
+                          ),
                         ),
-                      ), //密码
-                    ]
+                      ],
+                    ),
+                  ), //账号
 
-                ),
+                  Expanded(
+                    flex: 2,
+                    child: Column(
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: Padding(
+                              padding: EdgeInsets.only(top: 10),
+                              child: Text('设定密码')),
+                        ),
+                        Expanded(
+                          flex: 2,
+                          child: TextFormField(
+                            decoration: InputDecoration(labelText: '输入密码'),
+                            obscureText: true,
+                          ),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: Padding(
+                              padding: EdgeInsets.only(top: 10),
+                              child: Text('核对密码')),
+                        ),
+                        Expanded(
+                          flex: 2,
+                          child: TextFormField(
+                            decoration: InputDecoration(labelText: '请再次输入密码'),
+                            obscureText: true,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ), //密码
+                ]),
               ),
 
               SizedBox(
                 height: 20,
               ),
 
-              ElevatedButton(onPressed: (){}, child: Text('注册账号'),),//登录和注册按钮row
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => questionScreen()));
+                },
+                child: Text('注册账号'),
+              ), //登录和注册按钮row
             ],
           ),
         ),
