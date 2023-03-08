@@ -14,10 +14,17 @@ class _questionScreenState extends State<questionScreen> {
 
   List<bool> isSelected = [false, false, false, false];
   List<Widget> answers = [
-    Text('answer1'),
-    Text('answer2'),
-    Text('answer3'),
-    Text('answer4')
+    Text('揍TA'),
+    Text('嘲笑TA'),
+    Text('陪伴，安慰TA'),
+    Text('远离TA')
+  ];
+
+  List<Widget> answers1 = [
+    Text('生命过程的一部分 '),
+    Text('需要感到羞耻的'),
+    Text('不正常的'),
+    Text('很开心的')
   ];
 
   @override
@@ -29,11 +36,16 @@ class _questionScreenState extends State<questionScreen> {
           padding: EdgeInsets.all(20),
           child: ListView(
             children: [
-              questionWidget(answers: answers, isSelected: isSelected),
-              questionWidget(answers: answers, isSelected: isSelected),
-              questionWidget(answers: answers, isSelected: isSelected),
-              questionWidget(answers: answers, isSelected: isSelected),
-              questionWidget(answers: answers, isSelected: isSelected),
+              questionWidget(
+                answers: answers,
+                isSelected: isSelected,
+                question: " 当你的朋友正在经历失去亲人的悲痛的时候，你可以",
+              ),
+              questionWidget(
+                answers: answers1,
+                isSelected: isSelected,
+                question: "失去亲友是",
+              ),
               SizedBox(height: 40),
               ElevatedButton(
                 onPressed: () {
@@ -55,10 +67,12 @@ class questionWidget extends StatelessWidget {
     super.key,
     required this.answers,
     required this.isSelected,
+    required this.question,
   });
 
   final List<Widget> answers;
   final List<bool> isSelected;
+  final String question;
 
   @override
   Widget build(BuildContext context) {
@@ -75,8 +89,8 @@ class questionWidget extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.only(top: 10),
               child: Text(
-                'Question Text',
-                style: TextStyle(fontSize: 30),
+                question,
+                //style: TextStyle(fontSize: 30),
               ),
             ),
           ),
